@@ -1,6 +1,3 @@
-# In KodeKloud CloudShell
-git clone https://github.com/megha910825/aws_buildagent_infra.git
-cd aws-buildagent-infra
 terraform init
 
 wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
