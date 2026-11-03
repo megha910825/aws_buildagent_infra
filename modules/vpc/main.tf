@@ -64,10 +64,14 @@ resource "aws_nat_gateway" "ba_nat_gw" {
   }
 }
 # Elastic IP for NAT Gateway
-resource "aws_eip" "ba_eip" { ## eip stands here elastic IP for the NAT gateway
+resource "aws_eip" "ba_eip" {
+  domain = "vpc"
+
   tags = {
-    Name  = "ba_eip"
+    Name = "ba_eip"
   }
+
+  depends_on = [aws_internet_gateway.ba_gw]
 }
 # Private Route Table
 resource "aws_route_table" "ba_rt_private" {
