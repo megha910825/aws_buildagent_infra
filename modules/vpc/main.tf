@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "ba_gw" {
 resource "aws_subnet" "ba_subnet_private" {
   vpc_id            = aws_vpc.ba_vpc.id
   cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1"
+  availability_zone = "us-east-1a"
 
   tags = {
     group = var.stack_name
@@ -31,7 +31,7 @@ resource "aws_subnet" "ba_subnet_public" {
   vpc_id                  = aws_vpc.ba_vpc.id
   cidr_block              = "10.0.101.0/24"
   map_public_ip_on_launch = true
-  availability_zone       = "us-east-1"
+  availability_zone       = "us-east-1a"
   tags = {
     Name  = "ba_subnet_public"
   }
