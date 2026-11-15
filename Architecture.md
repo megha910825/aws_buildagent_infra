@@ -110,3 +110,20 @@ State saved to S3 bucket
 GitHub Actions CI/CD pipeline
 keeps infrastructure up to date
 on every code change
+
+
+### connection between project 1 and project 2
+
+GitHub Actions triggers a job
+        ↓
+Job looks for a self-hosted runner
+        ↓
+Your EC2 instance (in private subnet) picks it up
+        ↓
+EC2 runs the job inside a Docker container
+(using the images you built in Project 1)
+        ↓
+Job completes, result reported back to GitHub
+        ↓
+EC2 sits idle, waiting for next job
+
