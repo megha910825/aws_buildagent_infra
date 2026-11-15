@@ -79,7 +79,7 @@ resource "aws_route_table" "ba_rt_private" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.ba_gw.id
+    nat_gateway_id = aws_nat_gateway.ba_nat_gw.id
   }
 
   tags = {
