@@ -25,6 +25,11 @@ resource "aws_instance" "build_agent" {
   vpc_security_group_ids      = [var.security_group_id]
   iam_instance_profile        = var.instance_profile_name
   associate_public_ip_address = false
+  user_data = <<-EOF
+  #!/bin/bash
+  systemctl enable --now amazon-ssm-agent
+  EOF
+
 
   tags = {
     Name = "ba-build-agent"
